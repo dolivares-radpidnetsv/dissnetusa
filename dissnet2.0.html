@@ -1,0 +1,666 @@
+<!DOCTYPE html>
+<html lang="es" class="">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dissnet LLC - Distribución de Soluciones Digitales para Comercial y Retail</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+    <!-- AOS Animation Library CSS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script>
+        // Immediately set theme to avoid FOUC
+        if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+          document.documentElement.classList.add('dark')
+        } else {
+          document.documentElement.classList.remove('dark')
+        }
+    </script>
+    <script>
+        // Configure Tailwind to use the 'class' strategy for dark mode
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Montserrat', 'sans-serif'],
+                    },
+                },
+            },
+        };
+    </script>
+    <style>
+        body {
+            font-family: 'Montserrat', sans-serif;
+            scroll-behavior: smooth;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+        .hero-bg {
+            background: linear-gradient(-45deg, #f8f9fa, #e9ecef, #f8f9fa, #dee2e6);
+            background-size: 400% 400%;
+            animation: gradientBG 15s ease infinite;
+        }
+        .dark .hero-bg {
+            background: linear-gradient(-45deg, #1f2937, #111827, #1f2937, #0f172a);
+            background-size: 400% 400%;
+            animation: gradientBG 15s ease infinite;
+        }
+        @keyframes gradientBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        .section-title {
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.1);
+        }
+        
+        .card, .cta-button {
+            transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+        }
+        .card {
+             border: 1px solid transparent;
+        }
+        .card:hover {
+            transform: translateY(-8px);
+            border-color: #3B82F6; 
+        }
+        .dark .card:hover {
+            box-shadow: 0 10px 25px -3px rgba(59, 130, 246, 0.1), 0 4px 10px -2px rgba(59, 130, 246, 0.08);
+        }
+        .product-image {
+            box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1), 0 4px 6px -2px rgba(0,0,0,0.05);
+        }
+        .dark .product-image {
+             box-shadow: 0 10px 15px -3px rgba(0,0,0,0.3), 0 4px 6px -2px rgba(0,0,0,0.2);
+        }
+        [data-aos] {
+            pointer-events: none;
+        }
+        .aos-animate {
+            pointer-events: auto;
+        }
+        .floating-whatsapp-btn {
+            position: fixed;
+            bottom: 25px;
+            right: 25px;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+            z-index: 1000;
+            transition: transform 0.3s ease;
+        }
+        .floating-whatsapp-btn:hover {
+            transform: scale(1.1);
+        }
+
+        /* Generic Carousel Styles */
+        .carousel {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+            overflow-x: scroll;
+        }
+        .carousel::-webkit-scrollbar {
+            display: none;
+        }
+
+        /* Card Carousel Specifics */
+        .card-carousel-track {
+            display: flex;
+        }
+        .card-carousel-item {
+            display: flex;
+            flex-direction: column;
+            width: 380px;
+            flex-shrink: 0;
+            margin-right: 2rem;
+            white-space: normal;
+        }
+        .carousel-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 10;
+        }
+        .carousel-btn-prev { left: 1rem; }
+        .carousel-btn-next { right: 1rem; }
+        
+        /* Brands Carousel (Auto Scroll with CSS) */
+        .brands-carousel-container {
+            overflow: hidden;
+            position: relative;
+        }
+        .brands-carousel-container:before,
+        .brands-carousel-container:after {
+            position: absolute; top: 0; height: 100%; content: ""; z-index: 2; width: 100px;
+        }
+        .brands-carousel-container:before { left: 0; background: linear-gradient(to left, rgba(243, 244, 246, 0), #f9fafb 90%); }
+        .brands-carousel-container:after { right: 0; background: linear-gradient(to right, rgba(243, 244, 246, 0), #f9fafb 90%); }
+        .dark .brands-carousel-container:before { background: linear-gradient(to left, rgba(31, 41, 55, 0), #1f2937 90%); }
+        .dark .brands-carousel-container:after { background: linear-gradient(to right, rgba(31, 41, 55, 0), #1f2937 90%); }
+        
+        .brands-track {
+            display: flex;
+            width: fit-content;
+            animation: auto-scroll 40s linear infinite;
+        }
+        .brands-carousel-container:hover .brands-track {
+            animation-play-state: paused;
+        }
+        .brand-name {
+            padding: 0 2rem;
+            font-size: 1.125rem;
+            font-weight: 600;
+            white-space: nowrap;
+        }
+        @keyframes auto-scroll {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+
+    </style>
+</head>
+<body class="bg-white text-gray-700 dark:bg-gray-900 dark:text-gray-300">
+
+    <!-- Header -->
+    <header class="bg-gray-800 dark:bg-gray-900 shadow-lg sticky top-0 z-50">
+        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+             <a href="#inicio" class="flex items-center">
+                <div><img class="w-10 h-10 mr-3" viewBox="0 0 100 100" src="https://cdn.shopify.com/s/files/1/0687/2966/7739/files/Icono_Dissnet.png?v=1759423971" alt="Logo Dissnet"></div>
+                <h1 class="text-2xl font-bold text-white">Dissnet</h1>
+            </a>
+            <div class="hidden md:flex items-center space-x-1 lg:space-x-2 text-sm lg:text-base">
+                <a href="#inicio" data-key="nav-home" class="text-gray-300 hover:text-white transition-colors duration-300 px-3 py-2 rounded-md">Inicio</a>
+                <a href="#nosotros" data-key="nav-about" class="text-gray-300 hover:text-white transition-colors duration-300 px-3 py-2 rounded-md">Nosotros</a>
+                <a href="#sector-comercial" data-key="nav-commercial" class="text-gray-300 hover:text-white transition-colors duration-300 px-3 py-2 rounded-md">Comercial</a>
+                <a href="#sector-retail" data-key="nav-retail" class="text-gray-300 hover:text-white transition-colors duration-300 px-3 py-2 rounded-md">Retail</a>
+                <a href="#marcas-aliadas" data-key="nav-brands" class="text-gray-300 hover:text-white transition-colors duration-300 px-3 py-2 rounded-md">Marcas</a>
+                <a href="#portafolio" data-key="nav-portfolio" class="text-gray-300 hover:text-white transition-colors duration-300 px-3 py-2 rounded-md">Portafolio</a>
+                <a href="#contacto" data-key="nav-contact" class="text-gray-300 hover:text-white transition-colors duration-300 px-3 py-2 rounded-md">Contacto</a>
+                
+                <div class="relative" id="lang-switcher">
+                    <button id="lang-btn" class="flex items-center text-gray-300 hover:text-white transition-colors duration-300 px-3 py-2 rounded-md focus:outline-none">
+                        <span id="current-lang">ES</span>
+                        <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    <div id="lang-menu" class="absolute right-0 mt-2 w-28 bg-white dark:bg-gray-700 rounded-md shadow-lg py-1 z-20 hidden">
+                        <a href="#" class="lang-option block px-4 py-2 text-sm text-gray-800 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-600" data-lang="es">Español</a>
+                        <a href="#" class="lang-option block px-4 py-2 text-sm text-gray-800 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-600" data-lang="en">English</a>
+                    </div>
+                </div>
+                
+                <button id="theme-toggle" class="p-2 rounded-full text-gray-300 hover:text-white hover:bg-gray-700 focus:outline-none">
+                    <svg id="theme-toggle-dark-icon" class="hidden w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg>
+                    <svg id="theme-toggle-light-icon" class="hidden w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zM3 11a1 1 0 100-2H2a1 1 0 100 2h1z" fill-rule="evenodd" clip-rule="evenodd"></path></svg>
+                </button>
+            </div>
+            <div class="md:hidden flex items-center">
+                <button id="theme-toggle-mobile" class="p-2 mr-2 rounded-full text-gray-300 hover:text-white hover:bg-gray-700 focus:outline-none">
+                    <svg id="theme-toggle-dark-icon-mobile" class="hidden w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg>
+                    <svg id="theme-toggle-light-icon-mobile" class="hidden w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zM3 11a1 1 0 100-2H2a1 1 0 100 2h1z" fill-rule="evenodd" clip-rule="evenodd"></path></svg>
+                </button>
+                <button id="menu-btn" class="text-gray-300 hover:text-white focus:outline-none">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+                </button>
+            </div>
+        </nav>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="md:hidden hidden px-6 pb-4 bg-gray-800 dark:bg-gray-900">
+            <!-- Mobile menu links will be populated by JS -->
+        </div>
+    </header>
+
+    <main>
+       <!-- Hero Section -->
+        <section id="inicio" class="hero-bg pt-20 pb-24 overflow-hidden">
+            <div class="container mx-auto px-6 text-center">
+                <h2 data-key="hero-title" class="text-4xl md:text-5xl font-bold section-title text-gray-800 dark:text-white mb-4" data-aos="fade-down">Distribución confiable, soluciones sin fronteras.</h2>
+                <p data-key="hero-subtitle" class="text-lg text-gray-600 dark:text-gray-300 max-w-3xl mx-auto mb-8 leading-relaxed" data-aos="fade-up" data-aos-delay="200">Impulsando la transformación digital de Latinoamérica.</p>
+            </div>
+        </section>
+        
+        <!-- Business Verticals Section -->
+        <section id="verticals" class="py-20 bg-gray-50 dark:bg-gray-800/50">
+            <div class="container mx-auto px-6">
+                 <div class="text-center mb-12" data-aos="fade-up">
+                    <h3 data-key="verticals-title" class="text-3xl font-bold section-title">Nuestras Verticales de Negocio</h3>
+                    <!-- <p data-key="verticals-subtitle" class="text-gray-500 dark:text-gray-400 mt-2">Soluciones especializadas para cada sector.</p> -->
+                </div>
+                <div class="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
+                    <!-- Commercial Sector Card -->
+                    <a href="#sector-comercial" class="card block bg-white dark:bg-gray-800 shadow-2xl rounded-lg overflow-hidden group" data-aos="fade-up">
+                        <div class="p-8">
+                            <div class="flex items-center mb-4">
+                                <div class="p-3 rounded-full bg-blue-100 dark:bg-blue-900/50 mr-4">
+                                     <svg class="w-8 h-8 text-blue-600 dark:text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path></svg>
+                                </div>
+                                <h4 class="text-2xl font-bold text-gray-800 dark:text-white">Comercial</h4>
+                                <!-- <h4 data-key="nav-commercial" class="text-2xl font-bold text-gray-800 dark:text-white"></h4> -->
+                            </div>
+                            <p data-key="commercial-card-text" class="text-gray-600 dark:text-gray-300">Soluciones tecnológicas B2B diseñadas para optimizar operaciones, mejorar la comunicación corporativa y potenciar el crecimiento empresarial.</p>
+                        </div>
+                    </a>
+                    <!-- Retail Sector Card -->
+                     <a href="#sector-retail" class="card block bg-white dark:bg-gray-800 shadow-2xl rounded-lg overflow-hidden group" data-aos="fade-up" data-aos-delay="200">
+                        <div class="p-8">
+                            <div class="flex items-center mb-4">
+                                <div class="p-3 rounded-full bg-green-100 dark:bg-green-900/50 mr-4">
+                                     <svg class="w-8 h-8 text-green-600 dark:text-green-400" style="color: #067948" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"></path></svg>
+                                    </div>
+                                    <h4 class="text-2xl font-bold text-gray-800 dark:text-white">Retail</h4>
+                                <!-- <h4 data-key="nav-retail" class="text-2xl font-bold text-gray-800 dark:text-white">Retail</h4> -->
+                            </div>
+                            <p data-key="retail-card-text" class="text-gray-600 dark:text-gray-300">Productos y gadgets de última generación para el consumidor final, enfocados en entretenimiento, conectividad y estilo de vida digital.</p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- === COMMERCIAL SECTOR === -->
+        <div id="sector-comercial">
+             <section class="py-20">
+                <div class="container mx-auto px-6">
+                    <div class="text-center mb-12" data-aos="fade-up">
+                        <h3 data-key="commercial-title" class="text-3xl font-bold section-title">Capacidades para el Sector Comercial</h3>
+                        <p data-key="solutions-subtitle" class="text-gray-500 dark:text-gray-400 mt-2">Tecnología de punta para cada necesidad de su negocio.</p>
+                    </div>
+                    <div class="relative carousel-container" data-aos="fade-up" data-carousel-type="hybrid">
+                        <div class="carousel solutions-carousel py-4" data-scroll-amount="412">
+                            <div class="card-carousel-track">
+                                <!-- Commercial Cards -->
+                                <div class="card card-carousel-item bg-white dark:bg-gray-800 shadow-lg p-8 rounded-lg text-center">
+                                    <div class="mb-4 text-blue-600"><svg class="w-16 h-16 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg></div>
+                                    <h4 data-key="sol-interactive-title" class="text-xl font-bold text-gray-800 dark:text-white mb-2">Pantallas Interactivas</h4>
+                                    <p data-key="sol-interactive-text" class="text-gray-600 dark:text-gray-300 leading-relaxed flex-grow">Fomente el engagement del cliente y la colaboración corporativa con tecnología táctil 4K de alta precisión.</p>
+                                </div>
+                                 <div class="card card-carousel-item bg-white dark:bg-gray-800 shadow-lg p-8 rounded-lg text-center">
+                                    <div class="mb-4" style="color: #067948;"><svg class="w-16 h-16 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z"></path></svg></div>
+                                    <h4 data-key="sol-kiosks-title" class="text-xl font-bold text-gray-800 dark:text-white mb-2">Kioscos Interactivos</h4>
+                                    <p data-key="sol-kiosks-text" class="text-gray-600 dark:text-gray-300 leading-relaxed flex-grow">Optimice procesos y mejore la experiencia de usuario con soluciones de autoservicio robustas y personalizables.</p>
+                                </div>
+                                <div class="card card-carousel-item bg-white dark:bg-gray-800 shadow-lg p-8 rounded-lg text-center">
+                                    <div class="mb-4 text-blue-600"><svg class="w-16 h-16 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3h3m-3 4h3m-3 4h3m-3 4h3"></path></svg></div>
+                                    <h4 data-key="sol-signage-title" class="text-xl font-bold text-gray-800 dark:text-white mb-2">Digital Signage (Indoor/Outdoor)</h4>
+                                    <p data-key="sol-signage-text" class="text-gray-600 dark:text-gray-300 leading-relaxed flex-grow">Asegure una comunicación de alto impacto en cualquier entorno con equipos de alto brillo y protección IP65/IP67.</p>
+                                </div>
+                                <div class="card card-carousel-item bg-white dark:bg-gray-800 shadow-lg p-8 rounded-lg text-center">
+                                    <div class="mb-4" style="color: #067948;">
+                                       <svg class="w-16 h-16 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 7h.01M12 12h.01M12 17h.01"></path></svg>
+                                    </div>
+                                    <h4 data-key="sol-poster-title" class="text-xl font-bold text-gray-800 dark:text-white mb-2">Digital Poster & LED Banner</h4>
+                                    <p data-key="sol-poster-text" class="text-gray-600 dark:text-gray-300 leading-relaxed flex-grow">Modernice sus espacios y dinamice sus promociones con formatos ultra-delgados y de fácil gestión.</p>
+                                </div>
+                                <div class="card card-carousel-item bg-white dark:bg-gray-800 shadow-lg p-8 rounded-lg text-center">
+                                    <div class="mb-4 text-blue-600">
+                                       <svg class="w-16 h-16 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M7 12l2-2m2 2l2-2m-4 4l2 2m2-2l2 2M3 12h.01M6 6h.01M6 18h.01M12 3v.01M12 21v.01M18 6h.01M18 18h.01M21 12h-.01"></path></svg>
+                                    </div>
+                                    <h4 data-key="sol-led-title" class="text-xl font-bold text-gray-800 dark:text-white mb-2">Soluciones LED</h4>
+                                    <p data-key="sol-led-text" class="text-gray-600 dark:text-gray-300 leading-relaxed flex-grow">Cree experiencias visuales inmersivas y de gran formato. Ofrecemos soluciones modulares para videowalls, publicidad exterior y eventos corporativos.</p>
+                                </div>
+                                <div class="card card-carousel-item bg-white dark:bg-gray-800 shadow-lg p-8 rounded-lg text-center">
+                                    <div class="mb-4" style="color: #067948;">
+                                       <svg class="w-16 h-16 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+                                    </div>
+                                    <h4 data-key="sol-network-title" class="text-xl font-bold text-gray-800 dark:text-white mb-2">Networking y Cómputo</h4>
+                                    <p data-key="sol-network-text" class="text-gray-600 dark:text-gray-300 leading-relaxed flex-grow">Proveemos la infraestructura tecnológica que potencia sus operaciones, desde servidores y estaciones de trabajo hasta switches y routers de última generación.</p>
+                                </div>
+                                 <!-- Duplicated Cards -->
+                                <div class="card card-carousel-item bg-white dark:bg-gray-800 shadow-lg p-8 rounded-lg text-center">
+                                    <div class="mb-4 text-blue-600"><svg class="w-16 h-16 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg></div>
+                                    <h4 data-key="sol-interactive-title" class="text-xl font-bold text-gray-800 dark:text-white mb-2">Pantallas Interactivas</h4>
+                                    <p data-key="sol-interactive-text" class="text-gray-600 dark:text-gray-300 leading-relaxed flex-grow">Fomente el engagement del cliente y la colaboración corporativa con tecnología táctil 4K de alta precisión.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <button class="carousel-btn bg-white/80 dark:bg-gray-700/80 backdrop-blur-sm rounded-full w-12 h-12 flex items-center justify-center shadow-md hover:bg-white dark:hover:bg-gray-700 transition carousel-btn-prev">
+                            <svg class="w-6 h-6 text-gray-600 dark:text-gray-200" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
+                        </button>
+                        <button class="carousel-btn bg-white/80 dark:bg-gray-700/80 backdrop-blur-sm rounded-full w-12 h-12 flex items-center justify-center shadow-md hover:bg-white dark:hover:bg-gray-700 transition carousel-btn-next">
+                            <svg class="w-6 h-6 text-gray-600 dark:text-gray-200" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                        </button>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- === RETAIL SECTOR === -->
+        <section id="sector-retail" class="py-20 bg-gray-50 dark:bg-gray-800/50">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-16" data-aos="fade-up">
+                    <h3 data-key="retail-title" class="text-3xl font-bold section-title">Soluciones para el Sector Retail</h3>
+                    <p data-key="retail-subtitle" class="text-gray-500 dark:text-gray-400 mt-2">Lo último en tecnología para el entretenimiento y la vida cotidiana.</p>
+                </div>
+                <div class="relative carousel-container" data-aos="fade-up" data-carousel-type="hybrid">
+                    <div class="carousel solutions-carousel py-4" data-scroll-amount="412">
+                        <div class="card-carousel-track">
+                            <!-- Retail Cards -->
+                            <div class="card card-carousel-item bg-white dark:bg-gray-800 shadow-lg p-8 rounded-lg text-center">
+                                <div class="mb-4 text-blue-600"><svg class="w-16 h-16 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.121 15.536c-1.171 1.952-3.07 1.952-4.242 0-1.172-1.953-1.172-5.119 0-7.072 1.171-1.952 3.07-1.952 4.242 0 1.172 1.953 1.172 5.119 0 7.072zM12 12l.01 0M12 21a9 9 0 110-18 9 9 0 010 18z"></path></svg></div>
+                                <h4 data-key="retail-consoles-title" class="text-xl font-bold text-gray-800 dark:text-white mb-2">Consolas de Videojuegos</h4>
+                                <p data-key="retail-consoles-text" class="text-gray-600 dark:text-gray-300 leading-relaxed flex-grow">Sumérgete en mundos increíbles con la última generación de consolas. Potencia, velocidad y catálogos de juegos inmersivos.</p>
+                            </div>
+                            <div class="card card-carousel-item bg-white dark:bg-gray-800 shadow-lg p-8 rounded-lg text-center">
+                                <div class="mb-4" style="color: #067948;"><svg class="w-16 h-16 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.532 8.686a.5.5 0 01.018-.706l1.768-1.768a.5.5 0 01.706.706L16.256 8.7a.5.5 0 01-.724.018zM10 2.25a.75.75 0 01.75.75v.008a.75.75 0 01-1.5 0V3a.75.75 0 01.75-.75zM7.5 12a4.5 4.5 0 119 0 4.5 4.5 0 01-9 0zM18.894 6.168a.5.5 0 01.018.707l-1.768 1.768a.5.5 0 01-.707-.707l1.768-1.768a.5.5 0 01.689-.018zM21.75 12a.75.75 0 01-.75.75h-.008a.75.75 0 010-1.5h.008a.75.75 0 01.75.75zM16.256 15.3a.5.5 0 01.707.706l-1.768 1.768a.5.5 0 01-.706-.706l1.768-1.768a.5.5 0 010-.018zM10 19.75a.75.75 0 01.75.75v.008a.75.75 0 01-1.5 0v-.008a.75.75 0 01.75-.75zM3.75 12a.75.75 0 01-.75.75H3a.75.75 0 010-1.5h.008a.75.75 0 01.75.75z"></path></svg></div>
+                                <h4 data-key="retail-speakers-title" class="text-xl font-bold text-gray-800 dark:text-white mb-2">Speakers </h4>
+                                <p data-key="retail-speakers-text" class="text-gray-600 dark:text-gray-300 leading-relaxed flex-grow">Siente cada nota con nuestra selección de altavoces. Sonido de alta fidelidad, conectividad Bluetooth y diseños modernos.</p>
+                            </div>
+                            <div class="card card-carousel-item bg-white dark:bg-gray-800 shadow-lg p-8 rounded-lg text-center">
+                                <div class="mb-4 text-gray-500"><svg class="w-16 h-16 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"></path></svg></div>
+                                <h4 data-key="retail-gadgets-title" class="text-xl font-bold text-gray-800 dark:text-white mb-2">Gadgets de Tecnología</h4>
+                                <p data-key="retail-gadgets-text" class="text-gray-600 dark:text-gray-300 leading-relaxed flex-grow">Descubre los gadgets que simplifican tu vida digital. Desde wearables y accesorios inteligentes hasta los dispositivos más innovadores.</p>
+                            </div>
+                        </div>
+                    </div>
+                     <button class="carousel-btn bg-white/80 dark:bg-gray-700/80 backdrop-blur-sm rounded-full w-12 h-12 flex items-center justify-center shadow-md hover:bg-white dark:hover:bg-gray-700 transition carousel-btn-prev">
+                        <svg class="w-6 h-6 text-gray-600 dark:text-gray-200" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
+                    </button>
+                    <button class="carousel-btn bg-white/80 dark:bg-gray-700/80 backdrop-blur-sm rounded-full w-12 h-12 flex items-center justify-center shadow-md hover:bg-white dark:hover:bg-gray-700 transition carousel-btn-next">
+                        <svg class="w-6 h-6 text-gray-600 dark:text-gray-200" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Marcas Aliadas Section -->
+        <section id="marcas-aliadas" class="py-20 bg-gray-50 dark:bg-gray-800">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-12" data-aos="fade-up">
+                    <h3 data-key="brands-title" class="text-3xl font-bold section-title">Nuestras Marcas Aliadas</h3>
+                    <p data-key="brands-subtitle" class="text-gray-500 dark:text-gray-400 mt-2">Trabajamos con los líderes de la industria para garantizar calidad y rendimiento.</p>
+                </div>
+                <div class="max-w-5xl mx-auto space-y-12">
+                    <!-- Digital Signage -->
+                    <div data-aos="fade-up" data-aos-delay="100">
+                        <h4 data-key="brands-cat-signage" class="text-xl font-bold text-center mb-6 text-gray-700 dark:text-gray-300">Digital Signage</h4>
+                        <div class="brands-carousel-container">
+                            <div class="brands-track">
+                                <span class="brand-name text-gray-500 dark:text-gray-400">Dissled</span><span class="brand-name text-gray-500 dark:text-gray-400">Distouch</span><span class="brand-name text-gray-500 dark:text-gray-400">ViewSonic</span><span class="brand-name text-gray-500 dark:text-gray-400">Samsung</span>
+                                <span class="brand-name text-gray-500 dark:text-gray-400">Dissled</span><span class="brand-name text-gray-500 dark:text-gray-400">Distouch</span><span class="brand-name text-gray-500 dark:text-gray-400">ViewSonic</span><span class="brand-name text-gray-500 dark:text-gray-400">Samsung</span>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Videoconferencias -->
+                    <div data-aos="fade-up" data-aos-delay="200">
+                        <h4 data-key="brands-cat-video" class="text-xl font-bold text-center mb-6 text-gray-700 dark:text-gray-300">Videoconferencias</h4>
+                        <div class="brands-carousel-container">
+                           <div class="brands-track">
+                                <span class="brand-name text-gray-500 dark:text-gray-400">Logitech</span><span class="brand-name text-gray-500 dark:text-gray-400">Yealink</span><span class="brand-name text-gray-500 dark:text-gray-400">Jabra GN</span>
+                                <span class="brand-name text-gray-500 dark:text-gray-400">Logitech</span><span class="brand-name text-gray-500 dark:text-gray-400">Yealink</span><span class="brand-name text-gray-500 dark:text-gray-400">Jabra GN</span>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Networking y Computo -->
+                    <div data-aos="fade-up" data-aos-delay="300">
+                        <h4 data-key="brands-cat-network" class="text-xl font-bold text-center mb-6 text-gray-700 dark:text-gray-300">Networking y Cómputo</h4>
+                        <div class="brands-carousel-container">
+                           <div class="brands-track">
+                                <span class="brand-name text-gray-500 dark:text-gray-400">HPE Aruba</span><span class="brand-name text-gray-500 dark:text-gray-400">Grandstream</span><span class="brand-name text-gray-500 dark:text-gray-400">Lenovo</span><span class="brand-name text-gray-500 dark:text-gray-400">HP</span><span class="brand-name text-gray-500 dark:text-gray-400">Dell</span><span class="brand-name text-gray-500 dark:text-gray-400">Targus</span>
+                                <span class="brand-name text-gray-500 dark:text-gray-400">HPE Aruba</span><span class="brand-name text-gray-500 dark:text-gray-400">Grandstream</span><span class="brand-name text-gray-500 dark:text-gray-400">Lenovo</span><span class="brand-name text-gray-500 dark:text-gray-400">HP</span><span class="brand-name text-gray-500 dark:text-gray-400">Dell</span><span class="brand-name text-gray-500 dark:text-gray-400">Targus</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Portafolio Section -->
+        <section id="portafolio" class="py-20">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-12" data-aos="fade-up">
+                    <h3 data-key="portfolio-title" class="text-3xl font-bold section-title">Portafolio de Proyectos</h3>
+                    <p data-key="portfolio-subtitle" class="text-gray-500 dark:text-gray-400 mt-2">Casos de éxito que demuestran nuestro impacto.</p>
+                </div>
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-4" data-aos="fade-up" data-aos-delay="200">
+                    <div class="grid gap-4">
+                        <div><img class="h-full w-full object-cover rounded-lg" src="https://cdn.shopify.com/s/files/1/0687/2966/7739/files/imagen.png-convertido-a-470x750.jpg?v=1759440553" alt="Display Vertical en tienda de ropa"></div>
+                        <div><img class="h-full w-full object-cover rounded-lg" src="https://cdn.shopify.com/s/files/1/0687/2966/7739/files/5925b8ae-6b74-4770-aa10-25aab736954a_removalai_preview-convertido-a-966x750.jpg?v=1759440708" alt="Pantalla LED en evento deportivo"></div>
+                    </div>
+                    <div class="grid gap-4">
+                        <div><img class="h-full w-full object-cover rounded-lg" src="https://cdn.shopify.com/s/files/1/0687/2966/7739/files/70fddc46-d5f5-4832-9a3c-c2a7c8c88b2a_removalai_preview-convertido-a-545x750.jpg?v=1759443725" alt="Kiosco Interactivo en aeropuerto"></div>
+                        <div><img class="h-full w-full object-cover rounded-lg" src="https://cdn.shopify.com/s/files/1/0687/2966/7739/files/image-22-convertido-a-750x750-removebg-preview.png?v=1759441945" alt="Menú Digital en drive-thru"></div>
+                    </div>
+                    <div class="grid gap-4">
+                        <div><img class="h-full w-full object-cover rounded-lg" src="https://cdn.shopify.com/s/files/1/0687/2966/7739/files/image-24-convertido-a-938x938.jpg?v=1759442691" alt="Pantalla gigante en un bar deportivo"></div>
+                        <div><img class="h-full w-full object-cover rounded-lg" src="https://cdn.shopify.com/s/files/1/0687/2966/7739/files/BossaMax_02-removebg-preview.png?v=1759442519" alt="Pantalla LED 360 grados"></div>
+                    </div>
+                    <div class="grid gap-4">
+                       <div><img class="h-full w-full object-cover rounded-lg" src="https://cdn.shopify.com/s/files/1/0687/2966/7739/files/image-25-convertido-a-1225x777-removebg-preview.png?v=1759443546" alt="Video wall en sala de control"></div>
+                       <div><img class="h-full w-full object-cover rounded-lg" src="https://cdn.shopify.com/s/files/1/0687/2966/7739/files/image-23-convertido-a-1260x977.jpg?v=1759441642"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contacto Section -->
+        <section id="contacto" class="py-20 bg-gray-900 dark:bg-black text-white">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-12" data-aos="fade-up">
+                    <h3 data-key="contact-title" class="text-3xl font-bold">Contacte a un Especialista</h3>
+                    <p data-key="contact-subtitle" class="text-gray-400 mt-2">Estamos listos para diseñar una solución a la medida de sus objetivos.</p>
+                </div>
+                <div class="flex flex-wrap justify-center gap-8 text-center" data-aos="fade-up" data-aos-delay="200">
+                    <div class="w-full md:w-auto">
+                        <h4 class="font-bold text-lg mb-2" style="color: #067948;">El Salvador</h4>
+                        <p class="text-gray-300">comercial@rapidnetsv.net</p>
+                        <p class="text-gray-300">+503-7622-8807</p>
+                        <a href="http://www.rapidnetsv.com" target="_blank" class="hover:underline" style="color: #067948;">www.rapidnetsv.com</a>
+                    </div>
+                    <div class="w-full md:w-auto">
+                        <h4 class="font-bold text-lg text-blue-400 mb-2">USA</h4>
+                        <p class="text-gray-300">nlastra@dissnetusa.com</p>
+                        <p class="text-gray-300">+1 786 450-3099</p>
+                         <a href="http://www.dissnetusa.com" target="_blank" class="text-blue-400 hover:underline">www.dissnetusa.com</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Floating WhatsApp Button -->
+    <a href="https://wa.me/17864503099?text=Hola%2C%2C%20me%20gustar%C3%ADa%20solicitar%20una%20cotizaci%C3%B3n." 
+       target="_blank" 
+       class="floating-whatsapp-btn"
+       style="background-color: #067948;"
+       data-aos="zoom-in" data-aos-delay="1000"
+       aria-label="Contactar por WhatsApp">
+        <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.894 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.433-9.89-9.889-9.89-5.452 0-9.887 4.428-9.889 9.891-.001 2.225.651 4.315 1.847 6.033l-1.02 3.744 3.803-1.001z"/>
+        </svg>
+    </a>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 dark:bg-black text-white py-6">
+        <div class="container mx-auto px-6 text-center">
+            <p data-key="footer-copyright">&copy; 2025 Dissnet LLC. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <!-- AOS Animation Library JS -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+
+            // Initialize AOS
+            AOS.init({
+                duration: 800, 
+                once: true,
+            });
+
+            // Mobile Menu
+            const menuBtn = document.getElementById('menu-btn');
+            const mobileMenu = document.getElementById('mobile-menu');
+            menuBtn.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+            
+            // Language Switcher
+            const langBtn = document.getElementById('lang-btn');
+            const langMenu = document.getElementById('lang-menu');
+            langBtn.addEventListener('click', (event) => {
+                event.stopPropagation();
+                langMenu.classList.toggle('hidden');
+            });
+
+            // Close dropdowns when clicking outside
+            window.addEventListener('click', () => {
+                langMenu.classList.add('hidden');
+            });
+
+            // Close menus on link click
+            document.querySelectorAll('#mobile-menu a').forEach(link => {
+                link.addEventListener('click', () => {
+                    mobileMenu.classList.add('hidden');
+                });
+            });
+
+            // Theme Toggle Logic
+            const themeToggleBtns = [document.getElementById('theme-toggle'), document.getElementById('theme-toggle-mobile')];
+            const darkIcons = [document.getElementById('theme-toggle-dark-icon'), document.getElementById('theme-toggle-dark-icon-mobile')];
+            const lightIcons = [document.getElementById('theme-toggle-light-icon'), document.getElementById('theme-toggle-light-icon-mobile')];
+
+            function updateIcons() {
+                if (document.documentElement.classList.contains('dark')) {
+                    lightIcons.forEach(icon => icon.classList.remove('hidden'));
+                    darkIcons.forEach(icon => icon.classList.add('hidden'));
+                } else {
+                    lightIcons.forEach(icon => icon.classList.add('hidden'));
+                    darkIcons.forEach(icon => icon.classList.remove('hidden'));
+                }
+            }
+            
+            function toggleTheme() {
+                document.documentElement.classList.toggle('dark');
+                localStorage.setItem('theme', document.documentElement.classList.contains('dark') ? 'dark' : 'light');
+                updateIcons();
+            }
+
+            themeToggleBtns.forEach(btn => btn.addEventListener('click', toggleTheme));
+            updateIcons(); // Set correct icon on load
+
+            // Translation Logic
+            const translations = {
+                es: {
+                    'nav-home': 'Inicio', 'nav-about': 'Nosotros', 'nav-commercial': 'Sector Comercial', 'nav-retail': 'Sector Retail', 'nav-brands': 'Marcas', 'nav-portfolio': 'Portafolio', 'nav-contact': 'Contacto',
+                    'hero-title': 'Distribución confiable, soluciones sin fronteras.', 'hero-subtitle': 'Más Allá de la Distribución: Su Socio Estratégico en Tecnología, Impulsando la transformación digital de Latinoamérica.', 'hero-cta': 'Conozca Nuestras Soluciones',
+                    'verticals-title': 'Nuestras Verticales de Negocio', 'verticals-subtitle': 'Soluciones especializadas para cada sector.', 'commercial-card-text': 'Soluciones tecnológicas B2B diseñadas para optimizar operaciones, mejorar la comunicación corporativa y potenciar el crecimiento empresarial.', 'retail-card-text': 'Productos y gadgets de última generación para el consumidor final, enfocados en entretenimiento, conectividad y estilo de vida digital.',
+                    'commercial-title': 'Capacidades para el Sector Comercial', 'solutions-subtitle': 'Tecnología de punta para cada necesidad de su negocio.', 'sol-interactive-title': 'Pantallas Interactivas', 'sol-interactive-text': 'Fomente el engagement del cliente y la colaboración corporativa con tecnología táctil 4K de alta precisión.', 'sol-kiosks-title': 'Kioscos Interactivos', 'sol-kiosks-text': 'Optimice procesos y mejore la experiencia de usuario con soluciones de autoservicio robustas y personalizables.', 'sol-signage-title': 'Digital Signage (Indoor/Outdoor)', 'sol-signage-text': 'Asegure una comunicación de alto impacto en cualquier entorno con equipos de alto brillo y protección IP65/IP67.', 'sol-poster-title': 'Digital Poster & LED Banner', 'sol-poster-text': 'Modernice sus espacios y dinamice sus promociones con formatos ultra-delgados y de fácil gestión.', 'sol-led-title': 'Soluciones LED', 'sol-led-text': 'Cree experiencias visuales inmersivas y de gran formato. Ofrecemos soluciones modulares para videowalls, publicidad exterior y eventos corporativos.', 'sol-network-title': 'Networking y Cómputo', 'sol-network-text': 'Proveemos la infraestructura tecnológica que potencia sus operaciones, desde servidores y estaciones de trabajo hasta switches y routers de última generación.',
+                    'retail-title': 'Soluciones para el Sector Retail', 'retail-subtitle': 'Lo último en tecnología para el entretenimiento y la vida cotidiana.', 'retail-consoles-title': 'Consolas de Videojuegos', 'retail-consoles-text': 'Sumérgete en mundos increíbles con la última generación de consolas. Potencia, velocidad y catálogos de juegos inmersivos.', 'retail-speakers-title': 'Speakers y Audio', 'retail-speakers-text': 'Siente cada nota con nuestra selección de altavoces. Sonido de alta fidelidad, conectividad Bluetooth y diseños modernos.', 'retail-gadgets-title': 'Gadgets de Tecnología', 'retail-gadgets-text': 'Descubre los gadgets que simplifican tu vida digital. Desde wearables y accesorios inteligentes hasta los dispositivos más innovadores.',
+                    'brands-title': 'Nuestras Marcas Aliadas', 'brands-subtitle': 'Trabajamos con los líderes de la industria para garantizar calidad y rendimiento.', 'brands-cat-signage': 'Digital Signage', 'brands-cat-video': 'Videoconferencias', 'brands-cat-network': 'Networking y Cómputo',
+                    'portfolio-title': 'Portafolio de Proyectos', 'portfolio-subtitle': 'Casos de éxito que demuestran nuestro impacto.',
+                    'contact-title': 'Contacte a un Especialista', 'contact-subtitle': 'Estamos listos para diseñar una solución a la medida de sus objetivos.',
+                    'footer-copyright': '&copy; 2025 Dissnet LLC. Todos los derechos reservados.'
+                },
+                en: {
+                    'nav-home': 'Home', 'nav-about': 'About Us', 'nav-commercial': 'Commercial Sector', 'nav-retail': 'Retail Sector', 'nav-brands': 'Brands', 'nav-portfolio': 'Portfolio', 'nav-contact': 'Contact',
+                    'hero-title': 'Reliable distribution, borderless solutions.', 'hero-subtitle': 'Beyond Distribution: Your Strategic Technology Partner, Driving the digital transformation of Latin America.', 'hero-cta': 'Discover Our Solutions',
+                    'verticals-title': 'Our Business Verticals', 'verticals-subtitle': 'Specialized solutions for each sector.', 'commercial-card-text': 'B2B technology solutions designed to optimize operations, improve corporate communication, and boost business growth.', 'retail-card-text': 'Latest generation products and gadgets for the end consumer, focused on entertainment, connectivity, and digital lifestyle.',
+                    'commercial-title': 'Capabilities for the Commercial Sector', 'solutions-subtitle': 'Cutting-edge technology for every business need.', 'sol-interactive-title': 'Interactive Displays', 'sol-interactive-text': 'Foster customer engagement and corporate collaboration with high-precision 4K touch technology.', 'sol-kiosks-title': 'Interactive Kiosks', 'sol-kiosks-text': 'Optimize processes and improve user experience with robust and customizable self-service solutions.', 'sol-signage-title': 'Digital Signage (Indoor/Outdoor)', 'sol-signage-text': 'Ensure high-impact communication in any environment with high-brightness and IP65/IP67 rated equipment.', 'sol-poster-title': 'Digital Poster & LED Banner', 'sol-poster-text': 'Modernize your spaces and energize your promotions with ultra-slim, easy-to-manage formats.', 'sol-led-title': 'LED Solutions', 'sol-led-text': 'Create immersive, large-format visual experiences. We offer modular solutions for video walls, outdoor advertising, and corporate events.', 'sol-network-title': 'Networking & Computing', 'sol-network-text': 'We provide the technological infrastructure that powers your operations, from servers and workstations to next-generation switches and routers.',
+                    'retail-title': 'Solutions for the Retail Sector', 'retail-subtitle': 'The latest technology for entertainment and daily life.', 'retail-consoles-title': 'Video Game Consoles', 'retail-consoles-text': 'Immerse yourself in incredible worlds with the latest generation of consoles. Power, speed, and immersive game catalogs.', 'retail-speakers-title': 'Speakers & Audio', 'retail-speakers-text': 'Feel every note with our selection of speakers. High-fidelity sound, Bluetooth connectivity, and modern designs.', 'retail-gadgets-title': 'Tech Gadgets', 'retail-gadgets-text': 'Discover the gadgets that simplify your digital life. From wearables and smart accessories to the most innovative devices.',
+                    'brands-title': 'Our Partner Brands', 'brands-subtitle': 'We work with industry leaders to ensure quality and performance.', 'brands-cat-signage': 'Digital Signage', 'brands-cat-video': 'Videoconferencing', 'brands-cat-network': 'Networking & Computing',
+                    'portfolio-title': 'Project Portfolio', 'portfolio-subtitle': 'Success stories that demonstrate our impact.',
+                    'contact-title': 'Contact a Specialist', 'contact-subtitle': 'We are ready to design a solution tailored to your goals.',
+                    'footer-copyright': '&copy; 2025 Dissnet LLC. All rights reserved.'
+                }
+            };
+            
+            const currentLangElement = document.getElementById('current-lang');
+            const langOptions = document.querySelectorAll('.lang-option');
+
+            const setLanguage = (lang) => {
+                document.querySelectorAll('[data-key]').forEach(element => {
+                    const key = element.dataset.key;
+                    if (translations[lang] && translations[lang][key]) {
+                        element.innerHTML = translations[lang][key];
+                    }
+                });
+                document.documentElement.lang = lang;
+                localStorage.setItem('language', lang);
+                currentLangElement.textContent = lang.toUpperCase();
+                langMenu.classList.add('hidden');
+                populateMobileMenu(lang);
+            };
+
+            const populateMobileMenu = (lang) => {
+                const navLinks = document.querySelector('.hidden.md\\:flex');
+                mobileMenu.innerHTML = '';
+                navLinks.querySelectorAll('a').forEach(link => {
+                    const key = link.dataset.key;
+                    const clonedLink = document.createElement('a');
+                    clonedLink.href = link.href;
+                    clonedLink.className = 'block py-2 text-gray-300 hover:text-white';
+                    clonedLink.textContent = translations[lang][key];
+                    clonedLink.addEventListener('click', () => mobileMenu.classList.add('hidden'));
+                    mobileMenu.appendChild(clonedLink);
+                });
+            };
+
+            langOptions.forEach(option => {
+                option.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    setLanguage(e.target.dataset.lang);
+                });
+            });
+
+            const initialLang = localStorage.getItem('language') || 'es';
+            setLanguage(initialLang);
+
+            // Hybrid Carousel Logic
+            function setupHybridCarousels() {
+                document.querySelectorAll('[data-carousel-type="hybrid"]').forEach(container => {
+                    const carousel = container.querySelector('.carousel');
+                    const prevBtn = container.querySelector('.carousel-btn-prev');
+                    const nextBtn = container.querySelector('.carousel-btn-next');
+                    if (!carousel || !prevBtn || !nextBtn) return;
+                    
+                    const scrollAmount = parseInt(carousel.dataset.scrollAmount) || 412;
+                    let autoScrollInterval = null;
+                    let inactivityTimer = null;
+
+                    const startAutoScroll = () => {
+                        if (autoScrollInterval) clearInterval(autoScrollInterval);
+                        autoScrollInterval = setInterval(() => {
+                            if (carousel.scrollLeft >= (carousel.scrollWidth / 2)) {
+                                 carousel.scrollTo({ left: 0, behavior: 'smooth' });
+                            } else {
+                                carousel.scrollBy({ left: 1, behavior: 'auto' });
+                            }
+                        }, 30);
+                    };
+
+                    const stopAutoScroll = () => clearInterval(autoScrollInterval);
+
+                    const handleManualInteraction = () => {
+                        stopAutoScroll();
+                        if (inactivityTimer) clearTimeout(inactivityTimer);
+                        inactivityTimer = setTimeout(startAutoScroll, 5000);
+                    };
+
+                    prevBtn.addEventListener('click', () => {
+                        carousel.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
+                        handleManualInteraction();
+                    });
+
+                    nextBtn.addEventListener('click', () => {
+                        carousel.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+                        handleManualInteraction();
+                    });
+                    
+                    container.addEventListener('mouseenter', stopAutoScroll);
+                    container.addEventListener('mouseleave', handleManualInteraction);
+
+                    startAutoScroll();
+                });
+            }
+            
+            setupHybridCarousels();
+        });
+    </script>
+
+</body>
+</html>
