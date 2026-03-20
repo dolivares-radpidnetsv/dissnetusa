@@ -54,7 +54,52 @@ const translations = {
         "btn_whatsapp": "WhatsApp",
         "btn_visit": "Visitar Web",
         
-        "footer_rights": "© 2026 Dissnet LLC. Todos los derechos reservados."
+        "footer_rights": "© 2026 Dissnet LLC. Todos los derechos reservados.",
+        
+        "prod_led_title": "LED Signage",
+        "prod_status": "Con disponibilidad",
+        "prod_led_hook": "Impacto visual a gran escala para Indoor y Outdoor.",
+        "prod_led_desc": "Nuestras soluciones LED de última generación ofrecen una claridad inigualable y una durabilidad excepcional para cualquier entorno comercial.",
+        "prod_features_title": "Características Clave",
+        "prod_feat_1": "Calidad de imagen superior (Pixel Pitch fino).",
+        "prod_feat_2": "Empalme sin bordes (Seamless Splicing) para videowalls.",
+        "prod_feat_3": "Flexibilidad de instalación y mantenimiento frontal.",
+        "prod_feat_4": "Alto brillo y contraste para visibilidad en pleno día.",
+        "prod_ideal_title": "Ideal para",
+        "prod_ideal_1": "Centros Comerciales: Publicidad de alto impacto.",
+        "prod_ideal_2": "Lobbies Corporativos: Branding y ambientación.",
+        "prod_ideal_3": "Eventos y Ferias: Escenarios memorables.",
+        "btn_consultar_wsp": "Consultar vía WhatsApp",
+        "prod_ds_title": "Digital Signage",
+        "prod_ds_hook": "Comunicación visual de alto impacto para negocios modernos.",
+        "prod_ds_desc": "Transforme la forma en que interactúa con sus clientes mediante pantallas digitales dinámicas diseñadas para captar la atención en cualquier entorno.",
+        "prod_ds_feat_1": "Gestión de contenido remota (Cloud Based).",
+        "prod_ds_feat_2": "Pantallas de alto brillo para visibilidad 24/7.",
+        "prod_ds_feat_3": "Formatos ultra-delgados y marcos mínimos.",
+        "prod_id_title": "Pantallas Interactivas",
+        "prod_id_hook": "Fomente el engagement con tecnología táctil de alta precisión.",
+        "prod_id_desc": "Soluciones interactivas 4K ideales para directorios, salas de colaboración y entornos educativos que demandan la máxima respuesta táctil.",
+        "prod_id_feat_1": "Tecnología táctil infrarroja de 20 puntos.",
+        "prod_id_feat_2": "Resolución 4K Ultra HD con cristal anti-reflejo.",
+        "prod_id_feat_3": "Integración nativa con sistemas de videoconferencia.",
+        "prod_ki_title": "Kioskos Interactivos",
+        "prod_ki_hook": "Optimice procesos con soluciones de autoservicio robustas.",
+        "prod_ki_desc": "Nuestros kioscos interactivos están diseñados para mejorar la eficiencia en retail, restaurantes y atención al cliente, ofreciendo una experiencia de usuario fluida y moderna.",
+        "prod_ki_feat_1": "Diseño ergonómico y resistente para alto tráfico.",
+        "prod_ki_feat_2": "Compatibilidad con periféricos (impresoras, scanners).",
+        "prod_ki_feat_3": "Pantallas táctiles capacitivas de alta respuesta.",
+        "prod_nc_title": "Networking y Cómputo",
+        "prod_nc_hook": "Infraestructura tecnológica de alto rendimiento.",
+        "prod_nc_desc": "Proveemos las bases para su transformación digital: desde servidores robustos y estaciones de trabajo hasta soluciones de networking de última generación.",
+        "prod_nc_feat_1": "Servidores escalables para todo tipo de carga.",
+        "prod_nc_feat_2": "Networking avanzado de HPE Aruba y Cisco.",
+        "prod_nc_feat_3": "Soporte técnico especializado y garantía.",
+        "prod_dp_title": "Digital Poster & LED Banner",
+        "prod_dp_hook": "Modernice sus espacios con formatos ultra-delgados.",
+        "prod_dp_desc": "Los pósters digitales y banners LED son la solución perfecta para promociones dinámicas en puntos de venta, ofreciendo una versatilidad de uso inigualable.",
+        "prod_dp_feat_1": "Formato ultra-esbelto y ligero (Plug & Play).",
+        "prod_dp_feat_2": "Control vía Wi-Fi o USB mediante App móvil.",
+        "prod_dp_feat_3": "Posibilidad de cascada (unir múltiples pósters)."
     },
     "en": {
         "nav_brand": "Dissnet",
@@ -105,7 +150,52 @@ const translations = {
         "btn_whatsapp": "WhatsApp",
         "btn_visit": "Visit Website",
         
-        "footer_rights": "© 2026 Dissnet LLC. All rights reserved."
+        "footer_rights": "© 2026 Dissnet LLC. All rights reserved.",
+        
+        "prod_led_title": "LED Signage",
+        "prod_status": "Available",
+        "prod_led_hook": "High-impact visual for Indoor and Outdoor.",
+        "prod_led_desc": "Our next-generation LED solutions offer unparalleled clarity and exceptional durability for any commercial environment.",
+        "prod_features_title": "Key Features",
+        "prod_feat_1": "Superior image quality (Fine Pixel Pitch).",
+        "prod_feat_2": "Seamless Splicing for videowalls.",
+        "prod_feat_3": "Installation flexibility and front maintenance.",
+        "prod_feat_4": "High brightness and contrast for daylight visibility.",
+        "prod_ideal_title": "Ideal for",
+        "prod_ideal_1": "Shopping Malls: High-impact advertising.",
+        "prod_ideal_2": "Corporate Lobbies: Branding and ambiance.",
+        "prod_ideal_3": "Events & Fairs: Memorable stages.",
+        "btn_consultar_wsp": "Consult via WhatsApp",
+        "prod_ds_title": "Digital Signage",
+        "prod_ds_hook": "High-impact visual communication for modern businesses.",
+        "prod_ds_desc": "Transform how you interact with your customers using dynamic digital displays designed to capture attention in any environment.",
+        "prod_ds_feat_1": "Remote content management (Cloud Based).",
+        "prod_ds_feat_2": "High brightness displays for 24/7 visibility.",
+        "prod_ds_feat_3": "Ultra-slim formats and minimal bezels.",
+        "prod_id_title": "Interactive Displays",
+        "prod_id_hook": "Boost engagement with high-precision touch technology.",
+        "prod_id_desc": "4K interactive solutions ideal for directories, collaboration rooms, and educational environments that demand maximum touch response.",
+        "prod_id_feat_1": "20-point infrared touch technology.",
+        "prod_id_feat_2": "4K Ultra HD resolution with anti-glare glass.",
+        "prod_id_feat_3": "Native integration with video conferencing systems.",
+        "prod_ki_title": "Interactive Kiosks",
+        "prod_ki_hook": "Optimize processes with robust self-service solutions.",
+        "prod_ki_desc": "Our interactive kiosks are designed to improve efficiency in retail, restaurants, and customer care, offering a smooth and modern user experience.",
+        "prod_ki_feat_1": "Ergonomic and durable design for high-traffic areas.",
+        "prod_ki_feat_2": "Compatibility with peripherals (printers, scanners).",
+        "prod_ki_feat_3": "High-responsiveness capacitive touch screens.",
+        "prod_nc_title": "Networking & Computing",
+        "prod_nc_hook": "High-performance technological infrastructure.",
+        "prod_nc_desc": "We provide the foundations for your digital transformation: from robust servers to next-generation networking solutions.",
+        "prod_nc_feat_1": "Scalable servers for all workloads.",
+        "prod_nc_feat_2": "Advanced networking from HPE Aruba and Cisco.",
+        "prod_nc_feat_3": "Specialized technical support and warranty.",
+        "prod_dp_title": "Digital Poster & LED Banner",
+        "prod_dp_hook": "Modernize your spaces with ultra-slim formats.",
+        "prod_dp_desc": "Digital posters and LED banners are the perfect solution for dynamic promotions at points of sale, offering unmatched versatility.",
+        "prod_dp_feat_1": "Ultra-slim and lightweight format (Plug & Play).",
+        "prod_dp_feat_2": "Control via Wi-Fi or USB through a mobile App.",
+        "prod_dp_feat_3": "Daisy-chain capability (connect multiple posters)."
     }
 };
 
@@ -121,44 +211,10 @@ document.addEventListener('DOMContentLoaded', () => {
     initCustomCursor(); // Inicializar el cursor futurista
 });
 
-// 7. Lógica del Cursor Personalizado (Antigravity Style)
+// 7. Lógica de Interactividad (Hover effects)
 function initCustomCursor() {
-    const dot = document.getElementById('cursor-dot');
-    const outline = document.getElementById('cursor-outline');
-    
-    // Variables para el suavizado (Efecto de inercia)
-    let mouseX = 0;
-    let mouseY = 0;
-    let dotX = 0;
-    let dotY = 0;
-    let outlineX = 0;
-    let outlineY = 0;
-
-    // Seguimiento del mouse
-    window.addEventListener('mousemove', (e) => {
-        mouseX = e.clientX;
-        mouseY = e.clientY;
-        
-        // El punto central es instantáneo o casi instantáneo
-        dot.style.left = `${mouseX}px`;
-        dot.style.top = `${mouseY}px`;
-    });
-
-    // Bucle de animación para el suavizado del anillo exterior
-    function animateCursor() {
-        // Interpola la posición actual del anillo hacia la del mouse (0.15 = velocidad de seguimiento)
-        outlineX += (mouseX - outlineX) * 0.15;
-        outlineY += (mouseY - outlineY) * 0.15;
-
-        outline.style.left = `${outlineX}px`;
-        outline.style.top = `${outlineY}px`;
-
-        requestAnimationFrame(animateCursor);
-    }
-    animateCursor();
-
-    // Detección de Hover en elementos interactivos
-    const interactiveElements = document.querySelectorAll('a, button, .glass-card, .icon-btn, .mobile-menu-btn');
+    // Detección de Hover en elementos interactivos para efectos CSS
+    const interactiveElements = document.querySelectorAll('a, button, .glass-card, .icon-btn, .mobile-menu-btn, .thumbnail');
     
     interactiveElements.forEach(el => {
         el.addEventListener('mouseenter', () => {
@@ -167,16 +223,6 @@ function initCustomCursor() {
         el.addEventListener('mouseleave', () => {
             document.body.classList.remove('cursor-hover');
         });
-    });
-
-    // Ocultar cursor al salir de la ventana
-    document.addEventListener('mouseleave', () => {
-        dot.style.opacity = '0';
-        outline.style.opacity = '0';
-    });
-    document.addEventListener('mouseenter', () => {
-        dot.style.opacity = '1';
-        outline.style.opacity = '0.5';
     });
 }
 

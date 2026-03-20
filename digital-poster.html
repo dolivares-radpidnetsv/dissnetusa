@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="dark">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital Poster & LED Banner - Dissnet Solutions</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        .product-page {
+            padding-top: 120px;
+        }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            gap: 4rem;
+            align-items: start;
+        }
+
+        .gallery-container {
+            position: sticky;
+            top: 120px;
+        }
+
+        .main-image-container {
+            width: 100%;
+            height: 600px;
+            border-radius: 24px;
+            overflow: hidden;
+            margin-bottom: 1.5rem;
+            border: 1px solid var(--glass-border);
+            box-shadow: var(--glass-shadow);
+        }
+
+        .main-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .thumbnails {
+            display: flex;
+            gap: 1rem;
+            overflow-x: auto;
+            padding-bottom: 10px;
+        }
+
+        .thumbnail {
+            width: 100px;
+            height: 100px;
+            border-radius: 12px;
+            overflow: hidden;
+            cursor: pointer;
+            border: 2px solid transparent;
+            transition: all 0.3s ease;
+            flex-shrink: 0;
+            opacity: 0.6;
+        }
+
+        .thumbnail.active {
+            border-color: var(--primary-color);
+            opacity: 1;
+            box-shadow: 0 0 15px var(--primary-color);
+        }
+
+        .thumbnail img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .product-info {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .vendor {
+            font-size: 0.85rem;
+            font-weight: 600;
+            letter-spacing: 2px;
+            color: var(--text-muted);
+            text-transform: uppercase;
+        }
+
+        .product-title {
+            font-size: 3.5rem;
+            font-weight: 800;
+            line-height: 1.1;
+        }
+
+        .status-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            background: rgba(16, 185, 129, 0.1);
+            color: var(--success-color);
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            width: fit-content;
+        }
+
+        .status-dot {
+            width: 8px;
+            height: 8px;
+            background: var(--success-color);
+            border-radius: 50%;
+            box-shadow: 0 0 10px var(--success-color);
+        }
+
+        .product-hook {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: var(--text-color);
+        }
+
+        .product-description {
+            color: var(--text-muted);
+            font-size: 1.05rem;
+        }
+
+        .feature-box {
+            margin-top: 1rem;
+        }
+
+        .feature-title {
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .feature-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 0.8rem;
+        }
+
+        .feature-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.8rem;
+            color: var(--text-muted);
+        }
+
+        .feature-item i {
+            color: var(--primary-color);
+            margin-top: 5px;
+            font-size: 0.9rem;
+        }
+
+        .product-actions {
+            margin-top: 2rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .btn-wsp {
+            background: #25D366;
+            color: white;
+            font-size: 1.1rem;
+            padding: 1.2rem;
+            border-radius: 16px;
+            box-shadow: 0 8px 30px rgba(37, 211, 102, 0.3);
+        }
+
+        .btn-wsp:hover {
+            box-shadow: 0 12px 40px rgba(37, 211, 102, 0.5);
+            transform: translateY(-3px);
+            background: #22c35e;
+        }
+
+        @media (max-width: 1024px) {
+            .product-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .gallery-container {
+                position: relative;
+                top: 0;
+            }
+
+            .main-image-container {
+                height: 400px;
+            }
+
+            .product-title {
+                font-size: 2.5rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar glass-panel">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <img src="https://cdn.shopify.com/s/files/1/0687/2966/7739/files/Icono_Dissnet.png?v=1759423971"
+                    alt="Dissnet Logo" class="logo-img">
+                <span data-i18n="nav_brand">Dissnet</span>
+            </a>
+            <div class="nav-links">
+                <a href="index.html#comercial" data-i18n="nav_comercial">Comercial</a>
+                <a href="index.html#retail" data-i18n="nav_retail">Retail</a>
+                <a href="index.html#marcas" data-i18n="nav_marcas">Marcas Aliadas</a>
+                <a href="index.html#contacto" data-i18n="nav_contacto">Contacto</a>
+            </div>
+            <div class="nav-controls">
+                <button id="langToggle" class="icon-btn" aria-label="Toggle Language"><i
+                        class="fa-solid fa-language"></i> <span id="currentLang">ES</span></button>
+                <button id="themeToggle" class="icon-btn" aria-label="Toggle Theme"><i class="fa-solid fa-moon"
+                        id="themeIcon"></i></button>
+                <button class="mobile-menu-btn icon-btn" id="mobileMenuBtn"><i class="fa-solid fa-bars"></i></button>
+            </div>
+        </div>
+    </nav>
+
+    <main class="section product-page">
+        <div class="product-grid">
+            <div class="gallery-container reveal">
+                <div class="main-image-container reveal">
+                    <img src="assets/images/digital_poster.png" alt="Digital Poster" class="main-image" id="mainImg">
+                </div>
+                <div class="thumbnails">
+                    <div class="thumbnail active" onclick="changeImage('assets/images/digital_poster.png', this)">
+                        <img src="assets/images/digital_poster.png" alt="Digital Poster">
+                    </div>
+                    <div class="thumbnail" onclick="changeImage('assets/images/poster_led.png', this)">
+                        <img src="assets/images/poster_led.png" alt="Poster Detail 1">
+                    </div>
+                    <div class="thumbnail" onclick="changeImage('assets/images/poster_led_4.png', this)">
+                        <img src="assets/images/poster_led_4.png" alt="Poster Detail 2">
+                    </div>
+                    <div class="thumbnail" onclick="changeImage('assets/images/poster_led_5.png', this)">
+                        <img src="assets/images/poster_led_5.png" alt="Poster Detail 3">
+                    </div>
+                </div>
+            </div>
+            <div class="product-info reveal">
+                <span class="vendor">Dissnet USA</span>
+                <h1 class="product-title gradient-text" data-i18n="prod_dp_title">Digital Poster</h1>
+                <div class="status-badge"><span class="status-dot"></span><span data-i18n="prod_status">Con
+                        disponibilidad</span></div>
+                <p class="product-hook" data-i18n="prod_dp_hook">Modernice sus espacios con formatos ultra-delgados.</p>
+                <p class="product-description" data-i18n="prod_dp_desc">Los pósters digitales y banners LED son la
+                    solución perfecta para promociones dinámicas en puntos de venta, ofreciendo una versatilidad de uso
+                    inigualable.</p>
+                <div class="feature-box glass-card">
+                    <h3 class="feature-title"><i class="fa-solid fa-star"></i> <span
+                            data-i18n="prod_features_title">Características Clave</span></h3>
+                    <ul class="feature-list">
+                        <li class="feature-item"><i class="fa-solid fa-check"></i> <span
+                                data-i18n="prod_dp_feat_1">Formato ultra-esbelto y ligero (Plug & Play).</span></li>
+                        <li class="feature-item"><i class="fa-solid fa-check"></i> <span
+                                data-i18n="prod_dp_feat_2">Control vía Wi-Fi o USB mediante App móvil.</span></li>
+                        <li class="feature-item"><i class="fa-solid fa-check"></i> <span
+                                data-i18n="prod_dp_feat_3">Posibilidad de cascada (unir múltiples pósters).</span></li>
+                    </ul>
+                </div>
+                <div class="product-actions">
+                    <a href="https://wa.me/17864503099?text=Hola,%20estoy%20interesado%20en%20el%20producto:%20Digital%20Poster"
+                        target="_blank" class="btn btn-wsp">
+                        <i class="fa-brands fa-whatsapp"></i> &nbsp; <span data-i18n="btn_consultar_wsp">Consultar vía
+                            WhatsApp</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </main>
+    <footer class="footer glass-panel">
+        <div class="footer-content">
+            <div class="footer-logo"><img
+                    src="https://cdn.shopify.com/s/files/1/0687/2966/7739/files/Icono_Dissnet.png?v=1759423971"
+                    alt="Dissnet" width="40"><span>Dissnet LLC</span></div>
+            <p data-i18n="footer_rights">© 2026 Dissnet LLC. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+    <script src="js/app.js"></script>
+    <script>function changeImage(src, el) { document.getElementById('mainImg').src = src; document.querySelectorAll('.thumbnail').forEach(t => t.classList.remove('active')); el.classList.add('active'); }</script>
+</body>
+
+</html>

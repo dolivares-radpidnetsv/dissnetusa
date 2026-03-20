@@ -45,27 +45,7 @@
    ========================================= */
 .cursor-dot,
 .cursor-outline {
-    pointer-events: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    transform: translate(-50%, -50%);
-    border-radius: 50%;
-    z-index: 9999;
-    transition: width 0.3s ease-out, height 0.3s ease-out, background-color 0.3s, border-color 0.3s, opacity 0.3s;
-}
-
-.cursor-dot {
-    width: 6px;
-    height: 6px;
-    background-color: var(--primary-color);
-}
-
-.cursor-outline {
-    width: 30px;
-    height: 30px;
-    border: 1.5px solid var(--primary-color);
-    opacity: 0.5;
+    display: none; /* Desactivado por bugs de visibilidad en diferentes viewports */
 }
 
 /* Estado de Hover (Cuando el cursor está sobre un elemento interactivo) */
@@ -83,23 +63,10 @@
     background-color: rgba(6, 182, 212, 0.05); /* Sutil fondo cyan al hacer hover */
 }
 
-/* Ocultar cursor real en desktop para una experiencia inmersiva */
-@media (hover: hover) and (pointer: fine) {
-    body {
-        cursor: none;
-    }
-    a, button, .glass-card, .icon-btn, .mobile-menu-btn {
-        cursor: none;
-    }
-}
-
 /* En móviles ocultamos el cursor personalizado ya que no hay mouse */
-@media (max-width: 1024px) {
+@media (max-width: 768px), (pointer: coarse) {
     .cursor-dot, .cursor-outline {
-        display: none;
-    }
-    body {
-        cursor: auto;
+        display: none !important;
     }
 }
 
