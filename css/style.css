@@ -41,33 +41,19 @@
 }
 
 /* =========================================
-   Cursor Personalizado (Antigravity Style) 
+   Cursor y Visibilidad (Fix Global)
    ========================================= */
+html, body {
+    cursor: auto !important; /* Forzar visibilidad del cursor por defecto */
+}
+
+a, button, .btn, .card, .glass-card, .icon-btn, .thumbnail, .brand-item {
+    cursor: pointer !important; /* Forzar mano en elementos interactivos */
+}
+
 .cursor-dot,
 .cursor-outline {
-    display: none; /* Desactivado por bugs de visibilidad en diferentes viewports */
-}
-
-/* Estado de Hover (Cuando el cursor está sobre un elemento interactivo) */
-.cursor-hover .cursor-dot {
-    transform: translate(-50%, -50%) scale(1.5);
-    background-color: var(--secondary-color);
-    box-shadow: 0 0 15px var(--secondary-color);
-}
-
-.cursor-hover .cursor-outline {
-    width: 60px;
-    height: 60px;
-    border-color: var(--secondary-color);
-    opacity: 0.8;
-    background-color: rgba(6, 182, 212, 0.05); /* Sutil fondo cyan al hacer hover */
-}
-
-/* En móviles ocultamos el cursor personalizado ya que no hay mouse */
-@media (max-width: 768px), (pointer: coarse) {
-    .cursor-dot, .cursor-outline {
-        display: none !important;
-    }
+    display: none !important; /* Desactivado permanentemente para evitar bugs */
 }
 
 * {
