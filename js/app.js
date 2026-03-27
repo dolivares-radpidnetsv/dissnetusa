@@ -1,23 +1,23 @@
 /**
- * Dissnet App Logic
+ * DissNet App Logic
  * Handles i18n (English/Spanish), Theme toggle (Light/Dark), and Scroll reveals.
  */
 
 // 1. Translations Dictionary
 const translations = {
     "es": {
-        "nav_brand": "Dissnet",
-        "nav_comercial": "Comercial",
+        "nav_brand": "DissNet",
+        "nav_comercial": "Corporativo",
         "nav_retail": "Retail",
         "nav_marcas": "Marcas Aliadas",
         "nav_contacto": "Contacto",
         
         "hero_title": "Innovación Visual para <br><span class='gradient-text'>Empresas Líderes</span>",
         "hero_subtitle": "Distribución confiable de tecnología. Equipamos su negocio para el futuro con soluciones de última generación y gadgets increíbles.",
-        "btn_comercial": "Explorar Comercial",
-        "btn_retail": "Explorar Retail",
+        "btn_comercial": "Corporativo",
+        "btn_retail": "Retail",
         
-        "comercial_title": "Sector Comercial",
+        "comercial_title": "Corporativo",
         "comercial_subtitle": "Soluciones tecnológicas B2B diseñadas para optimizar operaciones y potenciar el crecimiento empresarial.",
         
         "sol_signage_title": "Digital Signage",
@@ -54,17 +54,17 @@ const translations = {
         "btn_whatsapp": "WhatsApp",
         "btn_visit": "Visitar Web",
         
-        "footer_rights": "© 2026 Dissnet LLC. Todos los derechos reservados.",
+        "footer_rights": "© 2026 DissNet LLC. Todos los derechos reservados.",
         
         "prod_led_title": "LED Signage",
         "prod_status": "Con disponibilidad",
         "prod_led_hook": "Impacto visual a gran escala para Indoor y Outdoor.",
-        "prod_led_desc": "Nuestras soluciones LED de última generación ofrecen una claridad inigualable y una durabilidad excepcional para cualquier entorno comercial.",
-        "prod_features_title": "Características Clave",
-        "prod_feat_1": "Calidad de imagen superior (Pixel Pitch fino).",
-        "prod_feat_2": "Empalme sin bordes (Seamless Splicing) para videowalls.",
-        "prod_feat_3": "Flexibilidad de instalación y mantenimiento frontal.",
-        "prod_feat_4": "Alto brillo y contraste para visibilidad en pleno día.",
+        "prod_led_desc": "Nuestras soluciones LED de alta definición son perfectas para mostrar precios de combustible, promociones y logos con total claridad, capturando la atención incluso en los días más soleados.",
+        "prod_features_title": "Especificaciones Técnicas",
+        "prod_feat_1": "Pixel Pitch: 2.5mm (P2.5) para una nitidez superior en logos y textos.",
+        "prod_feat_2": "Brillo: ≥ 5000 Nits/m² con visibilidad diurna superior bajo sol directo.",
+        "prod_feat_3": "Tasa de Refresco: ≥ 3840 Hz para video fluido y sin parpadeos.",
+        "prod_feat_4": "Grado de Protección: IP65 totalmente resistente a la intemperie.",
         "prod_ideal_title": "Ideal para",
         "prod_ideal_1": "Centros Comerciales: Publicidad de alto impacto.",
         "prod_ideal_2": "Lobbies Corporativos: Branding y ambientación.",
@@ -84,7 +84,7 @@ const translations = {
         "prod_id_feat_3": "Integración nativa con sistemas de videoconferencia.",
         "prod_ki_title": "Kioskos Interactivos",
         "prod_ki_hook": "Optimice procesos con soluciones de autoservicio robustas.",
-        "prod_ki_desc": "Nuestros kioscos interactivos están diseñados para mejorar la eficiencia en retail, restaurantes y atención al cliente, ofreciendo una experiencia de usuario fluida y moderna.",
+        "prod_ki_desc": "Nuestros kioscos interactivos, disponibles en tamaños de 21.5 a 32 pulgadas, están diseñados para mejorar la eficiencia con opciones de sistema operativo Android o Windows 10 LTS, ofreciendo una experiencia fluida y moderna.",
         "prod_ki_feat_1": "Diseño ergonómico y resistente para alto tráfico.",
         "prod_ki_feat_2": "Compatibilidad con periféricos (impresoras, scanners).",
         "prod_ki_feat_3": "Pantallas táctiles capacitivas de alta respuesta.",
@@ -96,24 +96,24 @@ const translations = {
         "prod_nc_feat_3": "Soporte técnico especializado y garantía.",
         "prod_dp_title": "Digital Poster & LED Banner",
         "prod_dp_hook": "Modernice sus espacios con formatos ultra-delgados.",
-        "prod_dp_desc": "Los pósters digitales y banners LED son la solución perfecta para promociones dinámicas en puntos de venta, ofreciendo una versatilidad de uso inigualable.",
-        "prod_dp_feat_1": "Formato ultra-esbelto y ligero (Plug & Play).",
-        "prod_dp_feat_2": "Control vía Wi-Fi o USB mediante App móvil.",
-        "prod_dp_feat_3": "Posibilidad de cascada (unir múltiples pósters)."
+        "prod_dp_desc": "Nuestros pósters digitales de alta gama (Serie FS) ofrecen una resolución P2.5 nativa y un diseño plegable único que facilita el transporte y almacenamiento, ideal para retail de lujo y eventos.",
+        "prod_dp_feat_1": "Pixel Pitch: 2.5 mm para visuales nítidos a corta distancia.",
+        "prod_dp_feat_2": "Dimensiones: 640 mm x 1920 mm de superficie visual impactante.",
+        "prod_dp_feat_3": "Diseño Plegable: Reduce el volumen de guardado en un 50%."
     },
     "en": {
-        "nav_brand": "Dissnet",
-        "nav_comercial": "Commercial",
+        "nav_brand": "DissNet",
+        "nav_comercial": "Corporate",
         "nav_retail": "Retail",
         "nav_marcas": "Partner Brands",
         "nav_contacto": "Contact",
         
         "hero_title": "Visual Innovation for <br><span class='gradient-text'>Leading Companies</span>",
         "hero_subtitle": "Reliable technology distribution. We equip your business for the future with next-generation solutions and incredible gadgets.",
-        "btn_comercial": "Explore Commercial",
-        "btn_retail": "Explore Retail",
+        "btn_comercial": "Corporate",
+        "btn_retail": "Retail",
         
-        "comercial_title": "Commercial Sector",
+        "comercial_title": "Corporate Sector",
         "comercial_subtitle": "B2B technology solutions designed to optimize operations and boost business growth.",
         
         "sol_signage_title": "Digital Signage",
@@ -150,17 +150,17 @@ const translations = {
         "btn_whatsapp": "WhatsApp",
         "btn_visit": "Visit Website",
         
-        "footer_rights": "© 2026 Dissnet LLC. All rights reserved.",
+        "footer_rights": "© 2026 DissNet LLC. All rights reserved.",
         
         "prod_led_title": "LED Signage",
         "prod_status": "Available",
         "prod_led_hook": "High-impact visual for Indoor and Outdoor.",
-        "prod_led_desc": "Our next-generation LED solutions offer unparalleled clarity and exceptional durability for any commercial environment.",
-        "prod_features_title": "Key Features",
-        "prod_feat_1": "Superior image quality (Fine Pixel Pitch).",
-        "prod_feat_2": "Seamless Splicing for videowalls.",
-        "prod_feat_3": "Installation flexibility and front maintenance.",
-        "prod_feat_4": "High brightness and contrast for daylight visibility.",
+        "prod_led_desc": "Our high-definition LED solutions are perfect for showing fuel prices, promotions, and logos with total clarity, capturing attention even on the sunniest days.",
+        "prod_features_title": "Technical Specifications",
+        "prod_feat_1": "Pixel Pitch: 2.5mm (P2.5) for superior sharpness in logos and text.",
+        "prod_feat_2": "Brightness: ≥ 5000 Nits/m² with superior daylight visibility under direct sun.",
+        "prod_feat_3": "Refresh Rate: ≥ 3840 Hz for smooth, flicker-free video.",
+        "prod_feat_4": "Protection Grade: IP65 fully weather-resistant.",
         "prod_ideal_title": "Ideal for",
         "prod_ideal_1": "Shopping Malls: High-impact advertising.",
         "prod_ideal_2": "Corporate Lobbies: Branding and ambiance.",
@@ -180,7 +180,7 @@ const translations = {
         "prod_id_feat_3": "Native integration with video conferencing systems.",
         "prod_ki_title": "Interactive Kiosks",
         "prod_ki_hook": "Optimize processes with robust self-service solutions.",
-        "prod_ki_desc": "Our interactive kiosks are designed to improve efficiency in retail, restaurants, and customer care, offering a smooth and modern user experience.",
+        "prod_ki_desc": "Our interactive kiosks, available in sizes from 21.5 to 32 inches, are designed to improve efficiency with Android or Windows 10 LTS operating system options, offering a smooth and modern user experience.",
         "prod_ki_feat_1": "Ergonomic and durable design for high-traffic areas.",
         "prod_ki_feat_2": "Compatibility with peripherals (printers, scanners).",
         "prod_ki_feat_3": "High-responsiveness capacitive touch screens.",
@@ -192,10 +192,10 @@ const translations = {
         "prod_nc_feat_3": "Specialized technical support and warranty.",
         "prod_dp_title": "Digital Poster & LED Banner",
         "prod_dp_hook": "Modernize your spaces with ultra-slim formats.",
-        "prod_dp_desc": "Digital posters and LED banners are the perfect solution for dynamic promotions at points of sale, offering unmatched versatility.",
-        "prod_dp_feat_1": "Ultra-slim and lightweight format (Plug & Play).",
-        "prod_dp_feat_2": "Control via Wi-Fi or USB through a mobile App.",
-        "prod_dp_feat_3": "Daisy-chain capability (connect multiple posters)."
+        "prod_dp_desc": "Our high-end digital posters (FS Series) feature native P2.5 resolution and a unique foldable design for easy transport and storage, ideal for luxury retail and events.",
+        "prod_dp_feat_1": "Pixel Pitch: 2.5 mm for sharp visuals at close range.",
+        "prod_dp_feat_2": "Dimensions: 640 mm x 1920 mm of impactful visual surface.",
+        "prod_dp_feat_3": "Foldable Design: Reduces storage volume by 50%."
     }
 };
 
