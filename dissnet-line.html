@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="dark">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DissNet Line - Soluciones DissLED & DissTouch</title>
+    <!-- Modern Typography: Outfit -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <!-- Dynamic Background Glow -->
+    <div class="bg-glow bg-glow-1"></div>
+    <div class="bg-glow bg-glow-2"></div>
+    <div class="bg-glow bg-glow-3"></div>
+
+    <!-- Navigation -->
+    <nav class="navbar glass-panel">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <img src="https://cdn.shopify.com/s/files/1/0687/2966/7739/files/Icono_Dissnet.png?v=1759423971"
+                    alt="DissNet Logo" class="logo-img">
+                <span data-i18n="nav_brand">DissNet</span>
+            </a>
+            <div class="nav-links">
+                <a href="index.html#comercial" data-i18n="nav_comercial">Corporativo</a>
+                <a href="index.html#retail" data-i18n="nav_retail">Retail</a>
+                <a href="dissnet-line.html#dissled">DissLED</a>
+                <a href="dissnet-line.html#disstouch">DissTouch</a>
+                <a href="index.html#marcas" data-i18n="nav_marcas">Marcas Aliadas</a>
+                <a href="index.html#contacto" data-i18n="nav_contacto">Contacto</a>
+            </div>
+            <div class="nav-controls">
+                <button id="langToggle" class="icon-btn" aria-label="Toggle Language" title="English / Español">
+                    <i class="fa-solid fa-language"></i> <span id="currentLang">ES</span>
+                </button>
+                <button id="themeToggle" class="icon-btn" aria-label="Toggle Theme" title="Claro / Oscuro">
+                    <i class="fa-solid fa-moon" id="themeIcon"></i>
+                </button>
+                <button class="mobile-menu-btn icon-btn" id="mobileMenuBtn">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+            </div>
+        </div>
+        <div class="mobile-menu glass-panel" id="mobileMenu">
+            <a href="index.html#comercial" data-i18n="nav_comercial">Corporativo</a>
+            <a href="index.html#retail" data-i18n="nav_retail">Retail</a>
+            <a href="dissnet-line.html#dissled">DissLED</a>
+            <a href="dissnet-line.html#disstouch">DissTouch</a>
+            <a href="index.html#marcas" data-i18n="nav_marcas">Marcas Aliadas</a>
+            <a href="index.html#contacto" data-i18n="nav_contacto">Contacto</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="hero" id="inicio" style="min-height: 80vh;">
+        <div class="hero-content reveal">
+            <span data-i18n="line_hero_tag" style="display:inline-block; padding: 4px 16px; border-radius: 50px; background: rgba(0,178,255,0.1); border: 1px solid rgba(0,178,255,0.3); color: var(--primary-color); font-size: 0.8rem; font-weight: 800; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 20px;">
+                Visual Innovation Total
+            </span>
+            <h1 class="hero-title" style="margin-top: 0;" data-i18n="line_hero_title">Elevando el <br><span class="gradient-text">Borde Digital</span></h1>
+            <p class="hero-subtitle" data-i18n="line_hero_subtitle">Soluciones visuales de vanguardia para transformar espacios físicos en experiencias digitales inmersivas de alta fidelidad.</p>
+            <div class="hero-actions">
+                <a href="#dissled" class="btn btn-primary" data-i18n="line_hero_btn_led">Ver DissLED</a>
+                <a href="#disstouch" class="btn btn-secondary" data-i18n="line_hero_btn_touch">Ver DissTouch</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Sección DissLED -->
+    <section class="section" id="dissled">
+        <div class="section-header reveal">
+            <h2 class="section-title" data-i18n="line_led_title">Soluciones <span class="gradient-text">DissLED</span></h2>
+            <p class="section-subtitle" data-i18n="line_led_subtitle">Pantallas de alta resolución y brillo superior para exteriores e interiores, diseñadas para captar cada mirada.</p>
+        </div>
+        
+        <div class="grid cards-grid">
+            <!-- Producto 1 -->
+            <a href="indoor-outdoor-dissled.html" class="card glass-card reveal">
+                <div class="card-img-container">
+                    <img src="assets/images/DissLED_Outdoor_5.png" alt="Indoor & Outdoor DissLED" class="card-img" style="object-fit: cover;">
+                    <div class="card-icon overlay"><i class="fa-solid fa-sun"></i></div>
+                </div>
+                <h3 class="card-title" data-i18n="line_prod1_title">Indoor & Outdoor DissLED</h3>
+                <p class="card-text" data-i18n="line_prod1_desc">Pixel Pitch: 2.5mm (P2.5). Alta Definición. Brillo: ≥ 5000 Nits/m² ideal para visibilidad diurna. Tasa de Refresco: ≥ 3840 Hz. Grado de Protección: IP65.</p>
+            </a>
+            
+            <!-- Producto 2 -->
+            <a href="rental-dissled.html" class="card glass-card reveal">
+                <div class="card-img-container">
+                    <img src="assets/images/DissLED_rental3.png" alt="Rental DissLED" class="card-img" style="object-fit: cover;">
+                    <div class="card-icon overlay"><i class="fa-solid fa-store"></i></div>
+                </div>
+                <h3 class="card-title" data-i18n="line_prod2_title">Rental DissLED</h3>
+                <p class="card-text" data-i18n="line_prod2_desc">Panel LED de alquiler (P1.9 a P4.8). Excelente disipación calor, IP65 y gabinetes serie RR con esquinas protectoras. Conexión rápida por cables.</p>
+            </a>
+
+            <!-- Producto 3 -->
+            <a href="transparent-flex-dissled.html" class="card glass-card reveal">
+                <div class="card-img-container">
+                    <img src="assets/images/DissLED_Transparent.jpg" alt="Transparent Flex DissLED" class="card-img" style="object-fit: cover;">
+                    <div class="card-icon overlay"><i class="fa-solid fa-eye"></i></div>
+                </div>
+                <h3 class="card-title" data-i18n="line_prod3_title">Transparent Flex DissLED</h3>
+                <p class="card-text" data-i18n="line_prod3_desc">Pantalla LED de cristal de alta claridad. Solución curva, transparente y modular ideal para arquitectura y vitrinas visualmente impactantes en retail y eventos.</p>
+            </a>
+        </div>
+    </section>
+
+    <!-- Sección DissTouch -->
+    <section class="section alt-bg" id="disstouch">
+        <div class="section-header reveal">
+            <h2 class="section-title" data-i18n="line_touch_title">Soluciones <span class="gradient-text">DissTouch</span></h2>
+            <p class="section-subtitle" data-i18n="line_touch_subtitle">Interactividad de precisión. Pantallas táctiles capacitivas e infrarrojas para educación, retail y entornos corporativos.</p>
+        </div>
+        
+        <div class="grid cards-grid">
+            <!-- Producto 1 -->
+            <a href="kiosk-disstouch.html" class="card glass-card reveal" style="text-decoration:none; color:inherit;">
+                <div class="card-img-container">
+                    <img src="assets/images/DissTouch_kiosk.jpeg" alt="Kiosk DissTouch" class="card-img" style="object-fit: cover;">
+                    <div class="card-icon success overlay"><i class="fa-solid fa-tablet-screen-button"></i></div>
+                </div>
+                <h3 class="card-title" data-i18n="line_prod4_title">Kiosk DissTouch</h3>
+                <p class="card-text" data-i18n="line_prod4_desc">Dimensiones: 22" a 65" | FHD | 2500 nits. Ideal para puntos de venta autónomos (Retail), compra de boletos (Transporte) y turnos (Salud y Gobierno).</p>
+            </a>
+            
+            <!-- Producto 2 -->
+            <a href="totem-disstouch.html" class="card glass-card reveal" style="text-decoration:none; color:inherit;">
+                <div class="card-img-container">
+                    <img src="assets/images/DissTouch_Totem2.jpeg" alt="Totem DissTouch" class="card-img" style="object-fit: cover;">
+                    <div class="card-icon success overlay"><i class="fa-solid fa-mobile-screen"></i></div>
+                </div>
+                <h3 class="card-title" data-i18n="line_prod5_title">Totem DissTouch</h3>
+                <p class="card-text" data-i18n="line_prod5_desc">Resolución 4K UHD | Multi-touch alta precisión (10+ puntos). Diseño elegante y robusto desde 10". Perfecto para probadores virtuales corporativos y retail.</p>
+            </a>
+
+            <!-- Producto 3 -->
+            <a href="drivethru-disstouch.html" class="card glass-card reveal" style="text-decoration:none; color:inherit;">
+                <div class="card-img-container">
+                    <img src="assets/images/DissTouch_DriveTh.jpeg" alt="DissTouch Drive-Thru" class="card-img" style="object-fit: cover;">
+                    <div class="card-icon success overlay"><i class="fa-solid fa-car"></i></div>
+                </div>
+                <h3 class="card-title" data-i18n="line_prod6_title">DissTouch Drive-Thru</h3>
+                <p class="card-text" data-i18n="line_prod6_desc">Tamaño: 55" | FHD | 4000/6000 nits. Full Array Local Dimming LED automático, vida operativa operativa de 50,000h y amplio ángulo de visión (178°).</p>
+            </a>
+        </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="section" style="text-align: center; padding-top: 100px; padding-bottom: 100px;">
+        <div class="reveal glass-panel" style="max-width: 800px; margin: 0 auto; padding: 60px 40px; border-radius: 30px; border: 1px solid rgba(255,255,255,0.1); background: rgba(0, 100, 146, 0.1);">
+            <i class="fa-solid fa-rocket" style="font-size: 3rem; color: var(--primary-color); margin-bottom: 20px;"></i>
+            <h2 class="section-title" style="margin-bottom: 20px;" data-i18n="line_cta_title">¿Listo para <span class="gradient-text">transformar tu espacio?</span></h2>
+            <p class="section-subtitle" style="margin-bottom: 40px; max-width: 600px; margin-left: auto; margin-right: auto;" data-i18n="line_cta_desc">
+                Nuestro equipo de expertos en tecnología visual está listo para asesorarte en el diseño, instalación y mantenimiento de tu proyecto.
+            </p>
+            <div class="hero-actions" style="justify-content: center;">
+                <a href="https://wa.me/17864503099" target="_blank" class="btn btn-primary" data-i18n="line_cta_btn1">Agendar Consultoría Gratuita</a>
+                <a href="#contacto" class="btn btn-outline" style="background: transparent; color: inherit;" data-i18n="line_cta_btn2">Descargar Dossier</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Floating WhatsApp -->
+    <a href="https://wa.me/17864503099?text=Hello%20I%20would%20like%20more%20information%20about%20DissLED%20and%20DissTouch" class="floating-wsp"
+        target="_blank" aria-label="WhatsApp">
+        <i class="fa-brands fa-whatsapp"></i>
+    </a>
+
+    <!-- Footer -->
+    <footer class="footer glass-panel">
+        <div class="footer-content">
+            <div class="footer-logo">
+                <img src="https://cdn.shopify.com/s/files/1/0687/2966/7739/files/Icono_Dissnet.png?v=1759423971"
+                    alt="DissNet" width="40">
+                <span>DissNet LLC</span>
+            </div>
+            <p data-i18n="footer_rights">© 2026 DissNet LLC. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="js/app.js"></script>
+</body>
+
+</html>
