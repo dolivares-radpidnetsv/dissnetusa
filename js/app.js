@@ -141,7 +141,6 @@ const translations = {
         "line_cta_title": "¿Listo para <span class='gradient-text'>transformar tu espacio?</span>",
         "line_cta_desc": "Nuestro equipo de expertos en tecnología visual está listo para asesorarte en el diseño, instalación y mantenimiento de tu proyecto.",
         "line_cta_btn1": "Agendar Consultoría Gratuita",
-        "line_cta_btn2": "Descargar Dossier",
 
         // --- Generated Products ---
         "p_indoor_title": "Indoor & Outdoor DissLED",
@@ -346,7 +345,6 @@ const translations = {
         "line_cta_title": "Ready to <span class='gradient-text'>transform your space?</span>",
         "line_cta_desc": "Our team of visual technology experts is ready to advise you on the design, installation, and maintenance of your project.",
         "line_cta_btn1": "Schedule a Free Consultation",
-        "line_cta_btn2": "Download Dossier",
         
         // --- Generated Products ---
         "p_indoor_title": "Indoor & Outdoor DissLED",
